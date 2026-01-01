@@ -111,7 +111,12 @@ const I18N = {
     "contact.form.email": "Email",
     "contact.form.message": "Message",
     "contact.form.send": "Envoyer",
-    "contact.form.template": "Remplir un exemple"
+    "contact.form.template": "Remplir un exemple",
+    "contact.form.exampleName": "Martin Dupont",
+    "contact.form.exampleEmail": "martin.dupont@gmail.com",
+    "contact.form.exampleMessage":
+      "Bonjour Mathieu,\n\nJe souhaite un site web / une app.\nObjectif :\nDélais :\nBudget :\n\nPeux-tu me proposer une solution ?\n",
+    "contact.form.exampleToast": "Exemple ajouté.",
   },
 
   en: {
@@ -179,6 +184,11 @@ const I18N = {
     "contact.form.message": "Message",
     "contact.form.send": "Send",
     "contact.form.template": "Fill an example",
+    "contact.form.exampleName": "Martin Dupont",
+    "contact.form.exampleEmail": "martin.dupont@gmail.com",
+    "contact.form.exampleMessage":
+      "Hi Mathieu,\n\nI'd like a website / a web app.\nGoals:\nTimeline:\nBudget:\n\nCan you propose a solution?\n",
+    "contact.form.exampleToast": "Example added.",
   }
 };
 
@@ -196,6 +206,12 @@ function applyI18n(lang) {
 
   storage.set("lang", lang);
 }
+
+function t(key, fallback = "") {
+  const lang = document.documentElement.lang || "fr";
+  return I18N?.[lang]?.[key] ?? fallback;
+}
+
 
 function initLang() {
   const saved = storage.get("lang", "fr");
@@ -284,12 +300,15 @@ function initContactForm() {
   const fillBtn = $("[data-fill-template]", form);
   if (fillBtn) {
     fillBtn.addEventListener("click", () => {
-      $("#name") && ($("#name").value = "Client potentiel");
-      $("#email") && ($("#email").value = "client@email.com");
-      $("#message") && ($("#message").value =
-        "Bonjour Mathieu,\n\nJe souhaite un site web / une app. Objectif, délais, budget : ...\n\nPeux-tu me proposer une solution ?\n"
-      );
-      showToast("Exemple ajouté.");
+      const nameEl = $("#name");
+      const emailEl = $("#email");
+      const msgEl = $("#message");
+
+      if (nameEl) nameEl.value = t("contact.form.exampleName", "Client potentiel");
+      if (emailEl) emailEl.value = t("contact.form.exampleEmail", "client@email.com");
+      if (msgEl) msgEl.value = t("contact.form.exampleMessage", "");
+
+      showToast(t("contact.form.exampleToast", "Exemple ajouté."));
     });
   }
 
