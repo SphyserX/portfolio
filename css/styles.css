@@ -408,6 +408,8 @@ input, textarea{
   outline: none;
 }
 textarea{ resize: vertical; min-height: 120px; }
+textarea { max-height: 1500px; overflow-y: auto; }
+
 input:focus, textarea:focus{
   border-color: rgba(51,182,255,.45);
   box-shadow: 0 0 0 4px rgba(51,182,255,.12);

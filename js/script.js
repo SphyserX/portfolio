@@ -55,7 +55,7 @@ const I18N = {
     "about.title": "À propos",
     "about.subtitle": "Profil, approche, et ce qui fait la différence en mission.",
     "about.card1.title": "Qui je suis",
-    "about.card1.p1": "17 ans, en Terminale, passionné par la création de produits web propres, rapides et robustes.",
+    "about.card1.p1": "17 ans, en classe de Terminale, passionné par la création de produits web utiles, propres, rapides et robustes.",
     "about.card1.p2": "Très carré et un peu perfectionniste : objectif “pro” sur le rendu, mais aussi sur la qualité du code.",
     "about.card1.p3": "J’aime construire des solutions complètes : front, back, base de données, hébergement et automatisations.",
     "about.card2.title": "Ce que je fais",
@@ -63,6 +63,7 @@ const I18N = {
     "about.card2.li2": "Applications web interactives (auth, API, base de données).",
     "about.card2.li3": "Automatisations & bots (trading, scripts, intégrations).",
     "about.card2.li4": "Infra perso : NAS, VM, réseau, hosting.",
+    "about.card2.li5": "Optimisation SEO.",
     "about.card3.title": "Stack & méthodes",
     "about.card3.p1": "Priorité : performance, accessibilité, SEO de base, et expérience utilisateur.",
 
@@ -105,7 +106,7 @@ const I18N = {
     "contact.title": "Contact",
     "contact.subtitle": "Décris ton besoin (site, app, automatisation). Réponse rapide.",
     "contact.direct.title": "Direct",
-    "contact.availability": "Disponible à temps partiel, en moyenne une semaine pour livrer un site vitrine.",
+    "contact.availability": "Délais : en moyenne une semaine pour livrer un site vitrine.",
     "contact.form.title": "Formulaire",
     "contact.form.name": "Nom",
     "contact.form.email": "Email",
@@ -129,7 +130,7 @@ const I18N = {
     "about.title": "About",
     "about.subtitle": "Profile, approach, and what makes the difference on a mission.",
     "about.card1.title": "Who I am",
-    "about.card1.p1": "17-year-old high school senior, passionate about building clean, fast, and robust web products.",
+    "about.card1.p1": "17-year-old high school senior, passionate about building useful, clean, fast, and robust web products.",
     "about.card1.p2": "Very structured and a bit perfectionist: professional visuals, and professional code quality.",
     "about.card1.p3": "I enjoy delivering end-to-end solutions: front-end, back-end, database, hosting, and automations.",
     "about.card2.title": "What I do",
@@ -137,6 +138,7 @@ const I18N = {
     "about.card2.li2": "Interactive web apps (auth, APIs, databases).",
     "about.card2.li3": "Automations & bots (trading, scripts, integrations).",
     "about.card2.li4": "Home infra: NAS, VMs, network, hosting.",
+    "about.card2.li5": "SEO optimization.",
     "about.card3.title": "Stack & methods",
     "about.card3.p1": "Priorities: performance, accessibility, basic SEO, and user experience.",
 
@@ -179,7 +181,7 @@ const I18N = {
     "contact.title": "Contact",
     "contact.subtitle": "Describe your need (website, app, automation). Quick reply.",
     "contact.direct.title": "Direct",
-    "contact.availability": "Available part-time, on average one week to deliver a showcase website.",
+    "contact.availability": "Timeframe : on average one week to deliver a showcase website.",
     "contact.form.title": "Form",
     "contact.form.name": "Name",
     "contact.form.email": "Email",
@@ -306,6 +308,17 @@ function initToasts() {
 function initContactForm() {
   const form = $("#contactForm");
   if (!form) return;
+  // Auto-grow textarea message
+  const msg = $("#message", form);
+  if (msg) {
+    const autoGrow = () => {
+      msg.style.height = "auto";
+      msg.style.height = msg.scrollHeight + "px";
+    };
+
+    msg.addEventListener("input", autoGrow);
+    autoGrow(); // au chargement (utile si un exemple est pré-rempli)
+  }
 
   const fillBtn = $("[data-fill-template]", form);
   if (fillBtn) {
@@ -316,7 +329,11 @@ function initContactForm() {
 
       if (name) name.value = t("contact.form.exampleName", "Client potentiel");
       if (email) email.value = t("contact.form.exampleEmail", "client@email.com");
-      if (message) message.value = t("contact.form.exampleMessage", "");
+      if (message) {
+        message.value = t("contact.form.exampleMessage", "");
+        message.style.height = "auto";
+        message.style.height = message.scrollHeight + "px";
+      }
 
       showToast(t("contact.form.exampleToast", "Exemple ajouté."));
     });
