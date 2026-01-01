@@ -400,8 +400,18 @@ function initHeaderScrolled(){
   if (!header) return;
 
   const update = () => {
-    const isDesktopOrTablet = window.matchMedia('(min-width: 741px)').matches;
-    header.classList.toggle('is-scrolled', isDesktopOrTablet && window.scrollY > 8);
+    const ok = window.matchMedia('(min-width: 741px)').matches;
+    if (!ok){
+      header.style.setProperty('--hfx', 0);
+      return;
+    }
+
+    const start = 0;     // début de l'effet
+    const end = 140;     // fin (ajuste selon la progressivité souhaitée)
+    const y = window.scrollY;
+
+    const t = Math.min(1, Math.max(0, (y - start) / (end - start)));
+    header.style.setProperty('--hfx', t.toFixed(3));
   };
 
   update();
