@@ -466,26 +466,36 @@ html[data-theme="light"] .footer{ border-top: 1px solid rgba(0,0,0,.08); }
     margin-left: auto;
   }
 
-  /* Burger -> X (3 spans) */
+  /* Burger -> CROIX (3 spans, robuste) */
   .nav-toggle span{
-    display: block;
-    width: 20px;
+    position: absolute;          /* on superpose */
+    left: 50%;
+    top: 50%;
+
+    width: 22px;
     height: 2px;
     background: var(--text);
     border-radius: 2px;
-    margin: 0;
+
+    margin: 0 !important;        /* écrase le margin desktop */
+    transform-origin: center;
     transition: transform .25s ease, opacity .25s ease;
   }
-  .nav-toggle span + span{ margin-top: 5px; }
 
+  /* état fermé : 3 barres */
+  .nav-toggle span:nth-child(1){ transform: translate(-50%, calc(-50% - 6px)); }
+  .nav-toggle span:nth-child(2){ transform: translate(-50%, -50%); }
+  .nav-toggle span:nth-child(3){ transform: translate(-50%, calc(-50% + 6px)); }
+
+  /* état ouvert : vraie croix */
   .nav-toggle[aria-expanded="true"] span:nth-child(1){
-    transform: translateY(7px) rotate(45deg);
+    transform: translate(-50%, -50%) rotate(45deg);
   }
   .nav-toggle[aria-expanded="true"] span:nth-child(2){
     opacity: 0;
   }
   .nav-toggle[aria-expanded="true"] span:nth-child(3){
-    transform: translateY(-7px) rotate(-45deg);
+    transform: translate(-50%, -50%) rotate(-45deg);
   }
 
   /* Menu plein écran (opaque + profondeur) */
@@ -504,30 +514,45 @@ html[data-theme="light"] .footer{ border-top: 1px solid rgba(0,0,0,.08); }
 
     padding: 84px 20px 20px;
 
-    background: var(--bg);                 /* opaque */
-    border-right: 1px solid var(--border); /* léger relief */
-    box-shadow: 0 24px 70px rgba(0,0,0,.55); /* profondeur */
-    backdrop-filter: none;                 /* enlève l'effet verre */
+    background: var(--bg);                    /* opaque */
+    border-right: 1px solid var(--border);    /* léger relief */
+    box-shadow: 0 24px 70px rgba(0,0,0,.55);  /* profondeur */
+    backdrop-filter: none;                    /* enlève l'effet verre */
 
     transform: translateX(-105%);
     transition: transform .25s ease;
     z-index: 1200;
   }
 
-  /* Liens */
-  .nav-links a{
+    /* Liens */
+    .nav-links a{
     width: 100%;
     padding: 14px 14px;
     border-radius: 14px;
     font-size: 16px;
-  }
+
+    border: 1px solid var(--border);     /* contour */
+    background: transparent;              /* garde le fond du menu */
+    }
+
+    /* Au survol (et focus clavier) */
+    .nav-links a:hover,
+    .nav-links a:focus-visible{
+    background: var(--panel);
+    border-color: rgba(51,182,255,.35);
+    color: var(--text);
+    }
+
+    /* Petit effet "appuyé" */
+    .nav-links a:active{
+    transform: translateY(1px);
+    }
+
 
   .nav-links.is-open{
     transform: translateX(0);
   }
 }
-
-
 
 
 /* Reduced motion */
