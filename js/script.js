@@ -395,6 +395,21 @@ function initToggles() {
   }
 }
 
+function initHeaderScrolled(){
+  const header = document.querySelector('.site-header');
+  if (!header) return;
+
+  const update = () => {
+    const isDesktopOrTablet = window.matchMedia('(min-width: 741px)').matches;
+    header.classList.toggle('is-scrolled', isDesktopOrTablet && window.scrollY > 8);
+  };
+
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+}
+
+
 /* ---------------------------
    Init
 ---------------------------- */
@@ -406,3 +421,4 @@ initToasts();
 initContactForm();
 initYear();
 initToggles();
+initHeaderScrolled();

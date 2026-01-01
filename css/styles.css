@@ -61,20 +61,38 @@ a{ color: inherit; text-decoration: none; }
 .site-header{
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 2000;
 
   background: transparent;
   backdrop-filter: none;
 
-  /* optionnel : tu peux garder ou enlever */
   border-bottom: 1px solid transparent;
   box-shadow: none;
+
+    transition: background .2s ease, backdrop-filter .2s ease,
+                border-color .2s ease, box-shadow .2s ease;
+
 }
 
+/* Effet "blur" sans recolorer (PC / tablette) */
+@media (min-width: 741px){
+  .site-header.is-scrolled{
+    background: rgba(0,0,0,.02);
+    backdrop-filter: blur(10px);
+    border-bottom-color: transparent;
+    box-shadow: 0 12px 30px rgba(0,0,0,.16);
+  }
 
+  html[data-theme="light"] .site-header.is-scrolled{
+    background: rgba(255,255,255,.04);
+    border-bottom-color: transparent;
+    box-shadow: 0 12px 30px rgba(15,24,44,.10);
+  }
 
-
-
+  .site-header.is-scrolled .nav-links a{
+    text-shadow: 0 1px 10px rgba(0,0,0,.35);
+  }
+}
 
 .nav{
   position: relative;
@@ -143,12 +161,7 @@ a{ color: inherit; text-decoration: none; }
   pointer-events: none;  /* ne bloque jamais les clics */
 }
 
-/* Le header et ses boutons toujours au-dessus */
-.site-header{
-  position: sticky;
-  top: 0;
-  z-index: 2000;         /* plus haut pour être sûr */
-}
+
 .nav, .nav-toggle, .nav-actions{
   position: relative;
   z-index: 2001;
