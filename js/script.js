@@ -172,14 +172,13 @@ const I18N = {
     "contact.title": "Contact",
     "contact.subtitle": "Describe your need (website, app, automation). Quick reply.",
     "contact.direct.title": "Direct",
-    "contact.availability": "Available alongside school (focused, iterative missions).",
+    "contact.availability": "Available part-time, on average one week to deliver a showcase website.",
     "contact.form.title": "Form",
     "contact.form.name": "Name",
     "contact.form.email": "Email",
     "contact.form.message": "Message",
     "contact.form.send": "Send",
     "contact.form.template": "Fill an example",
-    "contact.form.note": "Sent via Formspree (backend)."
   }
 };
 
