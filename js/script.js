@@ -75,12 +75,17 @@ const I18N = {
 
     "projects.title": "Projets",
     "projects.subtitle": "3 projets représentatifs : produit, performance, et technique.",
+
     "projects.icepulse.desc": "Site web de présentation d’une association donnant des cours de patinage.",
-    "projects.icepulse.b1": "Responsive.",
-    "projects.icepulse.b2": "Performant.",
+    "projects.icepulse.b1": "Navigation sticky + menu mobile en panneau latéral (off‑canvas).",
+    "projects.icepulse.b2": "Apparition progressive des sections et de la galerie au scroll.",
+    "projects.icepulse.b3": "Mode sombre/clair avec mémorisation du choix utilisateur.",
+
     "projects.checkice.desc": "Plateforme communautaire des patinoires : carte interactive, covoiturage, événements et réseau social.",
-    "projects.checkice.b1": "Auth + base de données + hosting.",
-    "projects.checkice.b2": "API + logique applicative.",
+    "projects.checkice.b1": "Gestion base de données (modèle + règles d’accès).",
+    "projects.checkice.b2": "Firebase Auth (inscription/connexion) + gestion de sessions.",
+    "projects.checkice.b3": "Relation client : recueil du besoin, itérations, livraison.",
+
     "projects.bot.title": "Robot de trading (scalping)",
     "projects.bot.desc": "Bot de trading crypto : API exchange, indicateurs (moyennes), exécution et gestion du risque.",
     "projects.bot.b1": "Connexion exchange + flux de données.",
@@ -109,6 +114,7 @@ const I18N = {
     "contact.form.template": "Remplir un exemple",
     "contact.form.note": "Envoi via Formspree (backend)."
   },
+
   en: {
     "hero.stats.projects": "Featured projects",
     "hero.stats.years": "Production projects",
@@ -137,12 +143,17 @@ const I18N = {
 
     "projects.title": "Projects",
     "projects.subtitle": "Three representative projects: product, performance, and engineering.",
+
     "projects.icepulse.desc": "Website for an association offering ice skating lessons.",
-    "projects.icepulse.b1": "Responsive.",
-    "projects.icepulse.b2": "Fast.",
+    "projects.icepulse.b1": "Sticky navigation + off‑canvas mobile menu.",
+    "projects.icepulse.b2": "Scroll reveal for sections and gallery.",
+    "projects.icepulse.b3": "Dark/light mode with saved user preference.",
+
     "projects.checkice.desc": "Community platform for ice rinks: interactive map, carpooling, events and a social network.",
-    "projects.checkice.b1": "Auth + database + hosting.",
-    "projects.checkice.b2": "APIs + application logic.",
+    "projects.checkice.b1": "Database management (model + access rules).",
+    "projects.checkice.b2": "Firebase Auth (signup/login) + session handling.",
+    "projects.checkice.b3": "Client communication: needs gathering, iterations, delivery.",
+
     "projects.bot.title": "Trading bot (scalping)",
     "projects.bot.desc": "Crypto trading bot: exchange API, indicators (moving averages), execution and risk management.",
     "projects.bot.b1": "Exchange connection + data stream.",
@@ -183,7 +194,7 @@ function applyI18n(lang) {
   });
 
   const langBtn = $("[data-lang-toggle]");
-  if (langBtn) langBtn.textContent = lang === "fr" ? "EN" : "FR";
+  if (langBtn) langBtn.textContent = (lang === "fr") ? "EN" : "FR";
 
   storage.set("lang", lang);
 }
@@ -231,8 +242,9 @@ function initMobileNav() {
 }
 
 /* ---------------------------
-   Reveal on scroll
+   Reveal on scroll (IntersectionObserver)
 ---------------------------- */
+// L'IntersectionObserver observe l'entrée/sortie d'éléments dans le viewport. [web:45]
 function initReveal() {
   const els = $$(".reveal");
   if (!els.length) return;
@@ -259,8 +271,7 @@ function initReveal() {
 function initToasts() {
   $$("[data-toast]").forEach((btn) => {
     btn.addEventListener("click", () => {
-      const msg = btn.getAttribute("data-toast") || "OK";
-      showToast(msg);
+      showToast(btn.getAttribute("data-toast") || "OK");
     });
   });
 }
@@ -287,7 +298,7 @@ function initContactForm() {
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    // Honeypot _gotcha (Formspree) [web source: Formspree docs]
+    // Honeypot Formspree: si _gotcha est rempli, Formspree ignore la soumission. [web:221]
     const gotcha = form.querySelector('input[name="_gotcha"]');
     if (gotcha && gotcha.value.trim()) {
       showToast("Message envoyé.");
@@ -304,13 +315,13 @@ function initContactForm() {
       return;
     }
 
-    // Optionnel: remplir _replyto si présent
+    // Remplit _replyto si présent
     const replyto = form.querySelector("#replyto");
     if (replyto) replyto.value = email;
 
-    // Sécurité: vérifier que Formspree est configuré
-    if (!form.action || form.action.includes("TON_FORM_ID")) {
-      showToast("Formspree non configuré : remplace TON_FORM_ID dans index.html.");
+    // Si action vide, on ne peut pas envoyer
+    if (!form.action) {
+      showToast("Formulaire non configuré (action manquante).");
       return;
     }
 
@@ -329,7 +340,10 @@ function initContactForm() {
       });
 
       if (res.ok) {
-        showToast((document.documentElement.lang === "en") ? "Message sent. Thanks!" : "Message envoyé. Merci !");
+        showToast((document.documentElement.lang === "en")
+          ? "Message sent. Thanks!"
+          : "Message envoyé. Merci !"
+        );
         form.reset();
       } else {
         showToast((document.documentElement.lang === "en")
