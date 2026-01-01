@@ -55,19 +55,21 @@
       <div class="container hero-grid">
         <div class="hero-copy">
           <p class="kicker reveal">Mathieu Chapron · SphyserX · Bourges</p>
-          <h1 class="hero-title reveal" data-stagger>
+
+          <h1 class="hero-title reveal">
             Dev web full‑stack, mobile & automatisations.
           </h1>
-          <p class="hero-subtitle reveal" data-stagger>
+
+          <p class="hero-subtitle reveal">
             Développement full‑stack (sites web responsives), mobile (applications) et automatisations (bots).
           </p>
 
-          <div class="hero-cta reveal" data-stagger>
+          <div class="hero-cta reveal">
             <a class="btn primary" href="#projects">Voir mes projets</a>
             <a class="btn ghost" href="#contact">Me contacter</a>
           </div>
 
-          <div class="hero-chips reveal" data-stagger>
+          <div class="hero-chips reveal">
             <span class="chip">Full‑stack</span>
             <span class="chip">Mobile</span>
             <span class="chip">Node.js</span>
@@ -94,12 +96,10 @@
 
           <div class="mini-links">
             <a class="mini-link" href="https://github.com/SphyserX" target="_blank" rel="noreferrer">
-              GitHub
-              <span aria-hidden="true">↗</span>
+              GitHub <span aria-hidden="true">↗</span>
             </a>
             <a class="mini-link" href="mailto:mathieu.chapron.2008@gmail.com">
-              Email
-              <span aria-hidden="true">↗</span>
+              Email <span aria-hidden="true">↗</span>
             </a>
           </div>
         </div>
@@ -155,7 +155,7 @@
       </div>
     </section>
 
-    <!-- COMPETENCES -->
+    <!-- SKILLS -->
     <section class="section" id="skills">
       <div class="container">
         <div class="section-head reveal">
@@ -205,7 +205,7 @@
       </div>
     </section>
 
-    <!-- PROJETS -->
+    <!-- PROJECTS -->
     <section class="section" id="projects">
       <div class="container">
         <div class="section-head reveal">
@@ -390,8 +390,21 @@
             </div>
           </div>
 
-          <form class="card reveal" id="contactForm">
+          <!-- Formspree: remplace TON_FORM_ID par ton endpoint -->
+          <form class="card reveal"
+                id="contactForm"
+                action="https://formspree.io/f/xrebeblp"
+                method="post">
             <h3 data-i18n="contact.form.title">Formulaire</h3>
+
+            <!-- Honeypot Formspree -->
+            <div class="hp-field" aria-hidden="true">
+              <label for="_gotcha">Ne pas remplir</label>
+              <input id="_gotcha" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+            </div>
+
+            <!-- Optionnel: Formspree reply-to -->
+            <input type="hidden" name="_replyto" id="replyto">
 
             <div class="field">
               <label for="name" data-i18n="contact.form.name">Nom</label>
@@ -416,7 +429,7 @@
             </div>
 
             <p class="muted tiny" data-i18n="contact.form.note">
-              Envoi en “mailto” (ouvre ton client mail). Pour un vrai backend, on branchera Formspree/Netlify Forms ou ton NAS.
+              Envoi via Formspree (backend).
             </p>
           </form>
         </div>
@@ -433,7 +446,6 @@
 
   <div class="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
 
-  <!-- correc chemin+ defer -->
   <script defer src="../js/script.js"></script>
 </body>
 </html>
