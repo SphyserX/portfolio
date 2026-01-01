@@ -105,14 +105,13 @@ const I18N = {
     "contact.title": "Contact",
     "contact.subtitle": "Décris ton besoin (site, app, automatisation). Réponse rapide.",
     "contact.direct.title": "Direct",
-    "contact.availability": "Disponible en parallèle des cours (missions ciblées, itératives).",
+    "contact.availability": "Disponible à temps partiel, en moyenne une semaine pour livrer un site vitrine.",
     "contact.form.title": "Formulaire",
     "contact.form.name": "Nom",
     "contact.form.email": "Email",
     "contact.form.message": "Message",
     "contact.form.send": "Envoyer",
-    "contact.form.template": "Remplir un exemple",
-    "contact.form.note": "Envoi via Formspree (backend)."
+    "contact.form.template": "Remplir un exemple"
   },
 
   en: {
