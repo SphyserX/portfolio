@@ -114,9 +114,11 @@ const I18N = {
     "contact.form.template": "Remplir un exemple",
     "contact.form.exampleName": "Martin Dupont",
     "contact.form.exampleEmail": "martin.dupont@gmail.com",
-    "contact.form.exampleMessage":
-      "Bonjour Mathieu,\n\nJe souhaite un site web / une app.\nObjectif :\nDélais :\nBudget :\n\nPeux-tu me proposer une solution ?\n",
+    "contact.form.exampleMessage": "Bonjour Mathieu,\n\nJe souhaite un site web / une app.\nObjectif :\nDélais :\nBudget :\n\nPeux-tu me proposer une solution ?\n",
     "contact.form.exampleToast": "Exemple ajouté.",
+    "contact.form.placeholder.name": "Ton nom",
+    "contact.form.placeholder.email": "ton@email.fr",
+    "contact.form.placeholder.message": "Décris ton besoin...",
   },
 
   en: {
@@ -186,9 +188,11 @@ const I18N = {
     "contact.form.template": "Fill an example",
     "contact.form.exampleName": "Martin Dupont",
     "contact.form.exampleEmail": "martin.dupont@gmail.com",
-    "contact.form.exampleMessage":
-      "Hi Mathieu,\n\nI'd like a website / a web app.\nGoals:\nTimeline:\nBudget:\n\nCan you propose a solution?\n",
+    "contact.form.exampleMessage": "Hi Mathieu,\n\nI'd like a website / a web app.\nGoals:\nTimeline:\nBudget:\n\nCan you propose a solution?\n",
     "contact.form.exampleToast": "Example added.",
+    "contact.form.placeholder.name": "Your name",
+    "contact.form.placeholder.email": "your@email.com",
+    "contact.form.placeholder.message": "Describe your need...",
   }
 };
 
@@ -199,6 +203,12 @@ function applyI18n(lang) {
     const key = el.getAttribute("data-i18n");
     const val = I18N?.[lang]?.[key];
     if (typeof val === "string") el.textContent = val;
+  });
+
+  $$("[data-i18n-placeholder]").forEach((el) => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    const val = I18N?.[lang]?.[key];
+    if (typeof val === "string") el.setAttribute("placeholder", val);
   });
 
   const langBtn = $("[data-lang-toggle]");
@@ -300,13 +310,13 @@ function initContactForm() {
   const fillBtn = $("[data-fill-template]", form);
   if (fillBtn) {
     fillBtn.addEventListener("click", () => {
-      const nameEl = $("#name");
-      const emailEl = $("#email");
-      const msgEl = $("#message");
+      const name = $("#name");
+      const email = $("#email");
+      const message = $("#message");
 
-      if (nameEl) nameEl.value = t("contact.form.exampleName", "Client potentiel");
-      if (emailEl) emailEl.value = t("contact.form.exampleEmail", "client@email.com");
-      if (msgEl) msgEl.value = t("contact.form.exampleMessage", "");
+      if (name) name.value = t("contact.form.exampleName", "Client potentiel");
+      if (email) email.value = t("contact.form.exampleEmail", "client@email.com");
+      if (message) message.value = t("contact.form.exampleMessage", "");
 
       showToast(t("contact.form.exampleToast", "Exemple ajouté."));
     });
