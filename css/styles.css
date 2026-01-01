@@ -424,14 +424,19 @@ html[data-theme="light"] .footer{ border-top: 1px solid rgba(0,0,0,.08); }
 .to-top{ color: var(--muted); }
 .to-top:hover{ color: var(--text); }
 
-/* Reveal */
+/* Reveal (même rendu que ICEPULSE) */
 .reveal{
   opacity: 0;
-  transform: translateY(14px);
-  transition: opacity .6s ease, transform .6s ease;
+  transform: translateY(40px);
+  transition: opacity 0.7s, transform 0.7s;
   will-change: opacity, transform;
 }
-.reveal.is-visible{ opacity: 1; transform: translateY(0); }
+
+.reveal.is-visible{
+  opacity: 1;
+  transform: none;
+}
+
 
 /* Toast */
 .toast{
