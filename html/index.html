@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light" />
+  <title>Mathieu Chapron — Full‑stack & Mobile</title>
+  <meta name="description" content="Portfolio de Mathieu Chapron (SphyserX) : développement full‑stack, mobile et automatisations." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
+  <header class="site-header" id="top">
+    <nav class="nav">
+      <a class="brand" href="#top" aria-label="Retour en haut">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span class="brand-text">SphyserX</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" data-nav-toggle>
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-links" data-nav-panel>
+        <a href="#about" data-nav-link>À propos</a>
+        <a href="#skills" data-nav-link>Compétences</a>
+        <a href="#projects" data-nav-link>Projets</a>
+        <a href="#experience" data-nav-link>Expériences</a>
+        <a href="#contact" data-nav-link>Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Basculer le thème">
+          <span aria-hidden="true">◐</span>
+        </button>
+        <button class="pill-btn" type="button" data-lang-toggle aria-label="Passer en anglais">
+          EN
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="kicker reveal">Mathieu Chapron · SphyserX · Bourges</p>
+          <h1 class="hero-title reveal" data-stagger>
+            Dev web full‑stack, mobile & automatisations.
+          </h1>
+          <p class="hero-subtitle reveal" data-stagger>
+            Développement full‑stack (sites web responsives), mobile (applications) et automatisations (bots).
+          </p>
+
+          <div class="hero-cta reveal" data-stagger>
+            <a class="btn primary" href="#projects">Voir mes projets</a>
+            <a class="btn ghost" href="#contact">Me contacter</a>
+          </div>
+
+          <div class="hero-chips reveal" data-stagger>
+            <span class="chip">Full‑stack</span>
+            <span class="chip">Mobile</span>
+            <span class="chip">Node.js</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Docker</span>
+          </div>
+        </div>
+
+        <div class="hero-card reveal">
+          <div class="stat-grid">
+            <div class="stat">
+              <div class="stat-num">3</div>
+              <div class="stat-label" data-i18n="hero.stats.projects">Projets mis en avant</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">2024 →</div>
+              <div class="stat-label" data-i18n="hero.stats.years">Projets en production</div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">Perf</div>
+              <div class="stat-label" data-i18n="hero.stats.focus">Focus : performance & UX</div>
+            </div>
+          </div>
+
+          <div class="mini-links">
+            <a class="mini-link" href="https://github.com/SphyserX" target="_blank" rel="noreferrer">
+              GitHub
+              <span aria-hidden="true">↗</span>
+            </a>
+            <a class="mini-link" href="mailto:mathieu.chapron.2008@gmail.com">
+              Email
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title" data-i18n="about.title">À propos</h2>
+          <p class="section-subtitle" data-i18n="about.subtitle">
+            Profil, approche, et ce qui fait la différence en mission.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="card reveal">
+            <h3 data-i18n="about.card1.title">Qui je suis</h3>
+            <p data-i18n="about.card1.p1">
+              17 ans, en Terminale, passionné par la création de produits web propres, rapides et robustes.
+            </p>
+            <p data-i18n="about.card1.p2">
+              Très carré et un peu perfectionniste : objectif “pro” sur le rendu, mais aussi sur la qualité du code.
+            </p>
+            <p data-i18n="about.card1.p3">
+              J’aime construire des solutions complètes : front, back, base de données, hébergement et automatisations.
+            </p>
+          </div>
+
+          <div class="card reveal">
+            <h3 data-i18n="about.card2.title">Ce que je fais</h3>
+            <ul class="list">
+              <li data-i18n="about.card2.li1">Sites vitrines et plateformes web responsives.</li>
+              <li data-i18n="about.card2.li2">Applications web interactives (auth, API, base de données).</li>
+              <li data-i18n="about.card2.li3">Automatisations & bots (trading, scripts, intégrations).</li>
+              <li data-i18n="about.card2.li4">Infra perso : NAS, VM, réseau, hosting.</li>
+            </ul>
+          </div>
+
+          <div class="card reveal">
+            <h3 data-i18n="about.card3.title">Stack & méthodes</h3>
+            <p data-i18n="about.card3.p1">
+              Priorité : performance, accessibilité, SEO de base, et expérience utilisateur.
+            </p>
+            <div class="pill-row">
+              <span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span>
+              <span class="pill">Node</span><span class="pill">SQL</span><span class="pill">Docker</span>
+              <span class="pill">Git</span><span class="pill">Hosting</span><span class="pill">Réseaux</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPETENCES -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title" data-i18n="skills.title">Compétences</h2>
+          <p class="section-subtitle" data-i18n="skills.subtitle">
+            Ce que j’utilise au quotidien pour livrer des projets fiables.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="card reveal">
+            <h3 data-i18n="skills.web.title">Web</h3>
+            <ul class="list">
+              <li>HTML / CSS / JS</li>
+              <li>Responsive / UI</li>
+              <li>Optimisations perf</li>
+            </ul>
+          </div>
+
+          <div class="card reveal">
+            <h3 data-i18n="skills.backend.title">Back-end</h3>
+            <ul class="list">
+              <li>Node.js</li>
+              <li>SQL</li>
+              <li>API / Auth</li>
+            </ul>
+          </div>
+
+          <div class="card reveal">
+            <h3 data-i18n="skills.ops.title">DevOps / Infra</h3>
+            <ul class="list">
+              <li>Git</li>
+              <li>Docker</li>
+              <li>Hosting / NAS / VM</li>
+            </ul>
+          </div>
+
+          <div class="card reveal">
+            <h3 data-i18n="skills.extra.title">Automatisations</h3>
+            <ul class="list">
+              <li>Bots & scripts</li>
+              <li>Trading (R&D)</li>
+              <li>Intégrations</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJETS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title" data-i18n="projects.title">Projets</h2>
+          <p class="section-subtitle" data-i18n="projects.subtitle">
+            3 projets représentatifs : produit, performance, et technique.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <div class="project-top">
+              <div>
+                <h3>ICEPULSE</h3>
+                <p class="muted" data-i18n="projects.icepulse.desc">
+                  Site web de présentation d’une association donnant des cours de patinage.
+                </p>
+              </div>
+              <span class="badge">2024</span>
+            </div>
+
+            <div class="tag-row">
+              <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span>
+            </div>
+
+            <ul class="bullets">
+              <li data-i18n="projects.icepulse.b1">Responsive.</li>
+              <li data-i18n="projects.icepulse.b2">Performant.</li>
+            </ul>
+
+            <div class="project-actions">
+              <a class="btn small primary" href="https://icepulse.fr" target="_blank" rel="noreferrer">Site</a>
+              <a class="btn small ghost" href="https://github.com/SphyserX/icepulse-site.git" target="_blank" rel="noreferrer">Code</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top">
+              <div>
+                <h3>CHECKICE</h3>
+                <p class="muted" data-i18n="projects.checkice.desc">
+                  Plateforme communautaire des patinoires : carte interactive, covoiturage, événements et réseau social.
+                </p>
+              </div>
+              <span class="badge">2025</span>
+            </div>
+
+            <div class="tag-row">
+              <span class="tag">HTML</span><span class="tag">Tailwind</span><span class="tag">JS</span>
+              <span class="tag">Firebase</span>
+            </div>
+
+            <ul class="bullets">
+              <li data-i18n="projects.checkice.b1">Auth + base de données + hosting.</li>
+              <li data-i18n="projects.checkice.b2">API + logique applicative.</li>
+            </ul>
+
+            <div class="project-actions">
+              <a class="btn small primary" href="https://checkice.fr" target="_blank" rel="noreferrer">Site</a>
+              <button class="btn small ghost" type="button" data-toast="Repo privé pour le moment.">Code</button>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-top">
+              <div>
+                <h3 data-i18n="projects.bot.title">Robot de trading (scalping)</h3>
+                <p class="muted" data-i18n="projects.bot.desc">
+                  Bot de trading crypto : API exchange, indicateurs (moyennes), exécution et gestion du risque.
+                </p>
+              </div>
+              <span class="badge">R&amp;D</span>
+            </div>
+
+            <div class="tag-row">
+              <span class="tag">API</span><span class="tag">Indicators</span><span class="tag">Crypto</span>
+            </div>
+
+            <ul class="bullets">
+              <li data-i18n="projects.bot.b1">Connexion exchange + flux de données.</li>
+              <li data-i18n="projects.bot.b2">Stratégies, backtesting (en cours), monitoring.</li>
+            </ul>
+
+            <div class="project-actions">
+              <a class="btn small ghost" href="#contact" data-i18n="projects.bot.cta">Demander une démo</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title" data-i18n="exp.title">Expériences</h2>
+          <p class="section-subtitle" data-i18n="exp.subtitle">
+            Projets clients, projets perso, et contexte pro.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="t-item reveal">
+            <div class="t-dot" aria-hidden="true"></div>
+            <div class="t-card">
+              <div class="t-top">
+                <h3>CHECKICE</h3>
+                <span class="badge">2025</span>
+              </div>
+              <p class="muted" data-i18n="exp.checkice">
+                Plateforme communautaire des patinoires : carte interactive, covoiturage, événements et réseau social.
+              </p>
+            </div>
+          </div>
+
+          <div class="t-item reveal">
+            <div class="t-dot" aria-hidden="true"></div>
+            <div class="t-card">
+              <div class="t-top">
+                <h3>ICEPULSE</h3>
+                <span class="badge">2024</span>
+              </div>
+              <p class="muted" data-i18n="exp.icepulse">
+                Site web de présentation d’une association (cours de patinage).
+              </p>
+            </div>
+          </div>
+
+          <div class="t-item reveal">
+            <div class="t-dot" aria-hidden="true"></div>
+            <div class="t-card">
+              <div class="t-top">
+                <h3 data-i18n="exp.homeinfra.title">Infrastructure réseau (perso)</h3>
+                <span class="badge" data-i18n="exp.homeinfra.badge">Projet perso</span>
+              </div>
+              <p class="muted" data-i18n="exp.homeinfra.desc">
+                Mise en place d’un environnement à la maison : NAS, VM, services web, réseau, automatisations.
+              </p>
+            </div>
+          </div>
+
+          <div class="t-item reveal">
+            <div class="t-dot" aria-hidden="true"></div>
+            <div class="t-card">
+              <div class="t-top">
+                <h3>QUALNET</h3>
+                <span class="badge" data-i18n="exp.qualnet.badge">Stage</span>
+              </div>
+              <p class="muted" data-i18n="exp.qualnet.desc">
+                Entreprise créant des logiciels qualité no‑code pour simplifier, structurer et piloter vos démarches.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2 class="section-title" data-i18n="contact.title">Contact</h2>
+          <p class="section-subtitle" data-i18n="contact.subtitle">
+            Décris ton besoin (site, app, automatisation). Réponse rapide.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="card reveal">
+            <h3 data-i18n="contact.direct.title">Direct</h3>
+            <div class="contact-links">
+              <a class="contact-link" href="mailto:mathieu.chapron.2008@gmail.com">
+                <span class="mono">mathieu.chapron.2008@gmail.com</span>
+              </a>
+              <a class="contact-link" href="https://github.com/SphyserX" target="_blank" rel="noreferrer">
+                GitHub: <span class="mono">SphyserX</span> ↗
+              </a>
+              <p class="muted" data-i18n="contact.availability">
+                Disponible en parallèle des cours (missions ciblées, itératives).
+              </p>
+            </div>
+          </div>
+
+          <form class="card reveal" id="contactForm">
+            <h3 data-i18n="contact.form.title">Formulaire</h3>
+
+            <div class="field">
+              <label for="name" data-i18n="contact.form.name">Nom</label>
+              <input id="name" name="name" autocomplete="name" placeholder="Ton nom" required />
+            </div>
+
+            <div class="field">
+              <label for="email" data-i18n="contact.form.email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="ton@email.com" required />
+            </div>
+
+            <div class="field">
+              <label for="message" data-i18n="contact.form.message">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Décris ton besoin..." required></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn primary" type="submit" data-i18n="contact.form.send">Envoyer</button>
+              <button class="btn ghost" type="button" data-fill-template data-i18n="contact.form.template">
+                Remplir un exemple
+              </button>
+            </div>
+
+            <p class="muted tiny" data-i18n="contact.form.note">
+              Envoi en “mailto” (ouvre ton client mail). Pour un vrai backend, on branchera Formspree/Netlify Forms ou ton NAS.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-row">
+      <p class="muted">© <span data-year></span> Mathieu Chapron · SphyserX</p>
+      <a class="to-top" href="#top">Haut ↑</a>
+    </div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+
+  <!-- correc chemin+ defer -->
+  <script defer src="../js/script.js"></script>
+</body>
+</html>
